@@ -25,4 +25,7 @@ display_shell.html used Babylon.js Game engine to display a 3D model.
 
 >> Modify line 200 to change the speed of rotation from 0.02 to a higher number or lower number to increase or decrease speed of rotation  >>> scene.meshes[0].rotate(BABYLON.Vector3.Up(), 0.02);
 
+
+>> Lines 184 and 185, to adjust minimum and maximum Zoom values that prevent your model to disappear to infinity while zooming in and out
+
    
