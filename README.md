@@ -20,7 +20,9 @@ video.elt.onloadeddata = () => {
 
 display_shell.html used Babylon.js Game engine to display a 3D model. 
 
->> Modify line 176 to use your own .GLB model file >>  BABYLON.SceneLoader.Append("assets/", "shell_best.glb", scene, function (scene) {
+>> Modify line 176 to use your own .GLB model file >>  BABYLON.SceneLoader.Append("assets/", "shell_best.glb", scene, function (scene) 
+
+
 >> Modify line 200 to change the speed of rotation from 0.02 to a higher number or lower number to increase or decrease speed of rotation  >>> scene.meshes[0].rotate(BABYLON.Vector3.Up(), 0.02);
 
    
