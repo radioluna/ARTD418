@@ -12,9 +12,10 @@ let quadMap;
 let quadMap2;
 
 let video;
-let video2
+let video2;
 
 let isPlaying = false;
+let isLoaded = false;
 
 let myFont;
 
@@ -38,8 +39,8 @@ function setup() {
             quadMap = pMapper.createQuadMap(video.width, video.height);
             quadMap2 = pMapper.createQuadMap(video2.width, video2.height);
             pMapper.load("maps/map.json");
+            isLoaded = true;
         };
-        console.log (video.width, video.height)
     };
 }
 
@@ -48,14 +49,17 @@ function draw() {
 
     displayFrameRate();
 
-    
-    if (isPlaying) {
-        quadMap.displayTexture(video);
-       quadMap2.displayTexture(video2);
-    }
-    else {
+    if (isLoaded) {
+        if (isPlaying) {
+            quadMap.displayTexture(video);
+            quadMap2.displayTexture(video2);
+        } else {
+            fill(255);
+            text("click to play", 0, 0);
+        }
+    } else {
         fill(255);
-        text("click to play", 0, 0);
+        text("loading...", 0, 0);
     }
 }
 
@@ -79,9 +83,11 @@ function keyPressed() {
 }
 
 function mousePressed() {
-    isPlaying = true;
-    video.loop();
-    video2.loop();
+    if (isLoaded) {
+        isPlaying = true;
+        video.loop();
+        video2.loop();
+    }
 }
 
 function windowResized() {
